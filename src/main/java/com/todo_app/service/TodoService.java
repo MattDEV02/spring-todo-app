@@ -12,7 +12,7 @@ import com.todo_app.utils.index;
 
 @Service
 public class TodoService {
-   @Autowired(required = true)
+   @Autowired
    private TodoRepository todoRepository;
    private final String message = "Todo Id = %d NOT FOUND.";
 
@@ -46,7 +46,10 @@ public class TodoService {
    public Todo select(final int id) {
       return this.todoRepository
               .findById(id)
-              .orElse(null);
+              .orElseThrow(() -> new TodoNotFoundException(
+                              String.format(this.message, id)
+                      )
+              );
    }
 
    public String delete(final int id) {
@@ -71,7 +74,7 @@ public class TodoService {
       final Todo todo = this.todoRepository
               .findById(id)
               .orElseThrow(() -> new TodoNotFoundException(
-                      String.format(this.message, id)
+                              String.format(this.message, id)
                       )
               );
       todo.setNome(nome);

@@ -3,6 +3,7 @@ C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\repository\TodoR
 C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\TodoAppApplication.java
 C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\error\ErrorData.java
 C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\model\Todo.java
+C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\security\HttpServerSecurity.java
 C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\error\exception\TodoNotFoundException.java
 C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\service\TodoService.java
 C:\Users\elisa\IdeaProjects\todo_app\src\main\java\com\todo_app\utils\index.java
