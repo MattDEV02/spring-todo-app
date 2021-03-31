@@ -1,0 +1,20 @@
+* {
+   margin: 0;
+   padding: 0;
+}
+
+#container {
+   margin-top: 8vh;
+   text-align: center;
+}
+
+h1 {
+   color: #E10909;
+}
+
+a, h2 {
+   text-decoration: none;
+   color: #0FA5D2;
+   margin-top: 5vh;
+}
+/*# sourceMappingURL=index.css.map */

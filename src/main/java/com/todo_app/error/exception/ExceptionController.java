@@ -1,7 +1,6 @@
-package com.todo_app.error;
+package com.todo_app.error.exception;
 
-import com.todo_app.controller.TodoController;
-import com.todo_app.error.exception.TodoNotFoundException;
+import com.todo_app.error.ErrorData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.*;
@@ -11,9 +10,9 @@ import java.util.Date;
 
 
 @ControllerAdvice
-public class ErrorControllerAdvice {
+public class ExceptionController {
 
-   private final Logger log = LoggerFactory.getLogger(ErrorControllerAdvice.class);
+   private final Logger log = LoggerFactory.getLogger(ExceptionController.class);
 
    @ExceptionHandler(TodoNotFoundException.class)
    public ResponseEntity<ErrorData> TodoNotFoundHandler(final TodoNotFoundException e, final WebRequest req){

@@ -1,0 +1,24 @@
+@import '../variables';
+
+
+$default: 0;
+
+* {
+   margin: $default;
+   padding: $default;
+}
+
+#container {
+   margin-top: 8vh;
+   text-align: center;
+}
+
+h1 {
+   color: #E10909;
+}
+
+a, h2 {
+   text-decoration: $decoration;
+   color: $blue;
+   margin-top: 5vh;
+}
