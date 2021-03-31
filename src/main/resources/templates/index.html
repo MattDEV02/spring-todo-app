@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang='en' dir='ltr' xmlns:th='http://www.thymeleaf.org'>
+<html xmlns:th='http://www.thymeleaf.org' lang='en' dir='ltr'>
 <head>
    <meta charset='UTF-8' />
    <meta http-equiv='content-type' content='text/html; charset=UTF-8' />
@@ -25,8 +25,7 @@
    </b>
 </noscript>
 <div th:with="route=${'/select'}">
-   <h1
-           th:text="'Total Todos: ' + ${numTodos}">
+   <h1 th:text="'Total Todos: ' + ${numTodos}">
    </h1>
    <ul>
       <li>

@@ -1,12 +1,12 @@
-package com.todo_app.service;
+package com.todo_app.mvc.controller.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.todo_app.error.exception.TodoNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Date;
-import com.todo_app.model.Todo;
-import com.todo_app.repository.TodoRepository;
+import com.todo_app.mvc.model.Todo;
+import com.todo_app.mvc.model.repository.TodoRepository;
 import com.todo_app.utils.index;
 
 
@@ -27,7 +27,7 @@ public class TodoService {
    public String insert(final String json) {
       final JsonNode data = index.jsonParser(json);
       final String nome = data.path("nome").asText();
-      final Date scadenza = index.DateCasting(data.path("scadenza").asText());
+      final Date scadenza = index.dateCasting(data.path("scadenza").asText());
       final Todo todo = new Todo();
       todo.setNome(nome);
       todo.setScadenza(scadenza);
@@ -70,7 +70,7 @@ public class TodoService {
       final JsonNode data = index.jsonParser(json);
       final int id = data.path("id").asInt();
       final String nome = data.path("nome").asText();
-      final Date scadenza = index.DateCasting(data.path("scadenza").asText());
+      final Date scadenza = index.dateCasting(data.path("scadenza").asText());
       final Todo todo = this.todoRepository
               .findById(id)
               .orElseThrow(() -> new TodoNotFoundException(

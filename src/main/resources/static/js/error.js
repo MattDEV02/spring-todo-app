@@ -1,1 +1,2 @@
-console.error("404 ERROR NOT FOUND.")
+const h1 = document.querySelector('h1');
+console.error(h1.innerText);

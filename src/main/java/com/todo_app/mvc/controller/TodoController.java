@@ -1,4 +1,4 @@
-package com.todo_app.controller;
+package com.todo_app.mvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,8 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.*;
 import org.jetbrains.annotations.NotNull;
-import com.todo_app.service.TodoService;
-import com.todo_app.model.Todo;
+import com.todo_app.mvc.controller.service.TodoService;
+import com.todo_app.mvc.model.Todo;
 
 
 @RestController

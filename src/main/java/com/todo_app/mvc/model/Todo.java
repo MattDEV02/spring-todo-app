@@ -1,4 +1,4 @@
-package com.todo_app.model;
+package com.todo_app.mvc.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.CreationTimestamp;

@@ -24,8 +24,7 @@ public class index {
       }
       return node;
    }
-   public static Date DateCasting(final String date) {
-      System.out.println("format: " + format);
+   public static Date dateCasting(final String date) {
       Date newDate = null;
       try {
          final SimpleDateFormat formatter = new SimpleDateFormat(format);
