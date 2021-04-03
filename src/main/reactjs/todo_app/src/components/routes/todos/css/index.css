@@ -1,0 +1,21 @@
+table {
+  font-weight: 500;
+}
+
+td {
+  border: 1px solid #000000;
+}
+
+thead {
+  background-color: #000000;
+  color: #D10909;
+}
+
+tbody {
+  background-color: #9B9B9B;
+}
+
+.expired {
+  opacity: 0.3;
+}
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,23 @@
+$black: #000000;
+
+
+table {
+   font-weight: 500;
+}
+
+td {
+   border: 1px solid $black;
+}
+
+thead {
+   background-color: $black;
+   color: #D10909;
+}
+
+tbody {
+   background-color: #9B9B9B;
+}
+
+.expired {
+   opacity: 0.3;
+}
