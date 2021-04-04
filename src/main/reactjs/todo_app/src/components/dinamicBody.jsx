@@ -5,30 +5,32 @@ import {
 } from 'react-router-dom';
 import Todos from './routes/todos';
 import Form from './routes/form';
-//import Error404 from './routes/error404';
+import Calendar from './routes/calendar';
+import Error404 from './routes/error404';
 import '../css/index.css';
 
 
-const Body = ({ todos }) => {
+const DynamicBody = () => {
    return (
       <Switch>
          <Route
-            path='/'
-            render={() =>
-               <Todos
-                  todos={todos}
-               />
-            }
+            exact path='/'
+            component={Todos}
          />
          <Route
             exact path='/form'
             component={Form}
          />
          <Route
-            component={Error404} />
+            exact path='/calendar'
+            component={Calendar}
+         />
+         <Route
+            component={Error404}
+         />
       </Switch>
    );
 }
 
 
-export default Body;
+export default DynamicBody;

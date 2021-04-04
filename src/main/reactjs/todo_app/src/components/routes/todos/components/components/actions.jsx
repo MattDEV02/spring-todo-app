@@ -9,7 +9,7 @@ const Actions = ({ todo }) => {
    return (
       <React.StrictMode>
          <button
-            className={`${selectors.btn}-primary`}
+            className={`${selectors.btn}-info`}
             id='inf'
             onClick={() => infoTodo(todo)}>
             <b>
@@ -30,7 +30,7 @@ const Actions = ({ todo }) => {
          </button>
          <button
             className={`${selectors.btn}-danger`}
-            id='del'
+            id={selectors.del}
             onClick={() => deleteTodo(todo.id)}>
             <b>
                <i

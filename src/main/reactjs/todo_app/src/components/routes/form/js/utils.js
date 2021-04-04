@@ -1,10 +1,14 @@
 import moment from 'moment';
 
 
-const formatDate = date => {
-   const format = 'YYYY-MM-DD HH:mm';
-   return moment(date)
+const formatDate = (date, format = 'YYYY-MM-DDTHH:mm') => {
+   const momentDate = date ? moment(date) : moment();
+   return momentDate
       .format(format);
+};
+
+String.prototype.isDateExpired = function () {
+   return (this < formatDate());
 };
 
 

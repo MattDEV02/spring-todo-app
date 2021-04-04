@@ -2,4 +2,8 @@
 #scadenza {
   font-weight: bold;
 }
+
+input:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=index.css.map */

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import ReactTooltip from 'react-tooltip';
 import Actions from './components/actions';
+import TodosLink from './components/todosLink';
 import selectors, { submitTodo, handleForm, now } from './js';
 import './css/index.css';
 
@@ -14,13 +16,14 @@ const Form = () => {
             <div className='col-3'>
                <div className={`${selectors.form} p-4 mt-5`}>
                   <h1 className='text-secondary'>
-                     {'Inserisci Todo'}
+                     Inserisci Todo
                   </h1>
                   <form
                      method='POST'
                      onSubmit={e => {
                         submitTodo(nome, scadenza);
                         handleForm(e);
+                        setScadenza(now);
                      }}>
                      <div className={`${selectors.row} mt-5`}>
                         <input
@@ -43,12 +46,18 @@ const Form = () => {
                            id={selectors.scadenza}
                            className={selectors.input}
                            min={now}
-                           value={now}
-                           title='Inserisci Scadenza Todo'
+                           value={scadenza}
+                           data-tip=''
+                           data-for={selectors.scadenza}
                            onChange={e => setScadenza(e.target.value)}
                            required
                         />
                      </div>
+                     <ReactTooltip
+                        id={selectors.scadenza}
+                        type='info'>
+                        Scadenza Todo
+                        </ReactTooltip>
                      <div className={`${selectors.row} mt-5`}>
                         <Actions />
                      </div>
@@ -56,6 +65,7 @@ const Form = () => {
                </div>
             </div>
          </div>
+         <TodosLink />
       </React.StrictMode >
    );
 };

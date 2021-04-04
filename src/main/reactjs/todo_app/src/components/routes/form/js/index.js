@@ -1,18 +1,16 @@
-import moment from 'moment';
 import {
    insert
-} from '../../../js';
+} from '../../../../js';
 import formatDate from './utils';
 
 
-const now = moment()
-   .format('YYYY-MM-DDTHH:mm');
+const now = formatDate();
 
 const selectors = {
    row: 'row justify-content-center',
+   col: 'col-5',
    form: 'form-container border border-dark bg-warning',
    input: 'form-control form-control-lg border border-dark',
-   btn: '',
    nome: 'nome',
    scadenza: 'scadenza'
 };

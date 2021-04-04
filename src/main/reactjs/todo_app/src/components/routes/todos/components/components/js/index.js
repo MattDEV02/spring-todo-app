@@ -2,8 +2,11 @@ import checkTodo from './utils';
 
 
 const selectors = {
+   row: 'row justify-content-center mt-5',
    btn: 'btn border border-dark mx-1 btn',
-   icon: 'fas fa'
+   icon: 'fas fa',
+   sub: 'sub', 
+   del: 'del'
 };
 
 const infoTodo = todo =>
