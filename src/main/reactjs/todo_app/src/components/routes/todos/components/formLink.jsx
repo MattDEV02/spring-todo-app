@@ -11,7 +11,7 @@ const FormLink = () => {
                <NavLink
                   exact to='/form'>
                   <button
-                     className={`${selectors.btn}-primary`}>
+                     className={`${selectors.btn}-primary link`}>
                      <b>
                         Form
                      </b>

@@ -1,4 +1,5 @@
-#inf:hover {
+#inf:hover,
+.link:hover {
   color: #CC099B;
 }
 

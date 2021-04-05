@@ -11,7 +11,7 @@ const TodosLink = () => {
                <NavLink
                   exact to='/'>
                   <button
-                     className={`${selectors.btn}-primary`}>
+                     className={`${selectors.btn}-primary link`}>
                      <b>
                         Todos
                      </b>
