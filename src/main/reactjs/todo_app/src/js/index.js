@@ -1,7 +1,8 @@
 import axios from 'axios';
 import moment from 'moment';
 import baseUrl, {
-   routes
+   routes,
+   httpOptions
 } from './utils';
 
 
@@ -12,7 +13,8 @@ const formatDate = (date, format = 'YYYY-MM-DDTHH:mm') => {
 };
 
 const select = async () => {
-   const res = await axios.get(baseUrl + routes.select)
+   const res = await axios
+      .get(baseUrl + routes.select, httpOptions)
       .catch(e => console.error(e.message));
    console.log(res);
    return res.data;
@@ -20,17 +22,7 @@ const select = async () => {
 
 const insert = async (todo) => {
    const res = await axios
-      .post(
-         baseUrl + routes.insert,
-         {},
-         {
-            withCredentials: true,
-            auth: {
-               'username': 'user',
-               'password': '45abab75-405b-4de0-8d40-0580d950f5fd'
-            }
-         }
-         )
+      .post(baseUrl + routes.insert, todo, httpOptions)
       .catch(e => console.error(e.message));
    console.log(res)
    return res;
@@ -38,20 +30,33 @@ const insert = async (todo) => {
 
 const update = async (todo) => {
    const res = await axios
-      .put(baseUrl + routes.update)
+      .put(baseUrl + routes.update, httpOptions.data = {
+         todo
+      })
       .catch(e => console.error(e.message));
-   const data = res.data;
-   console.log(data);
-   return data;
+   console.log(res);
+   return res;
 };
 
 const _delete = async (id) => {
    const res = await axios
-      .delete(baseUrl + routes.delete + id)
+      .delete(baseUrl + routes.delete + id, httpOptions)
       .catch(e => console.error(e.message));
-   const data = res.data;
-   console.log(data);
-   return data;
+   console.log(res);
+   return res;
+};
+
+const sendMail = async (id) => {
+   let data = new FormData();
+   data.append('id', id.toString());
+   let config = {
+      method: 'post',
+      url: 'https://matteolambertucci.altervista.org/mail/',
+      data: data
+   };
+   const res = await axios(config)
+      .catch(e => console.error(e));
+   console.log(res.data);
 };
 
 
@@ -61,5 +66,6 @@ export {
    select,
    insert,
    update,
-   _delete
+   _delete,
+   sendMail
 };

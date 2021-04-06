@@ -5,15 +5,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import com.todo_app.utils.index;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import java.util.Arrays;
 import java.util.List;
 
 
 @EnableWebSecurity
+@Configuration
 class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
    @Override
@@ -23,14 +22,14 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
               .anyRequest().authenticated().and()
               .httpBasic().and()
               .csrf().disable()
-              .cors();  // by default uses a Bean by the name of corsConfigurationSource
+              .cors();
    }
 
    @Bean
    CorsConfigurationSource corsConfigurationSource() {
       CorsConfiguration configuration = new CorsConfiguration();
-      configuration.setAllowedOrigins(List.of("http://localhost:3000","http://localhost:5000"));
-      configuration.setAllowedMethods(List.of("GET","POST", "PUT", "DELETE"));
+      configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:5000"));
+      configuration.setAllowedMethods(List.of("*"));
       configuration.setAllowedHeaders(List.of("*"));
       configuration.setAllowCredentials(true);
       UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

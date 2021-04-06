@@ -1,6 +1,7 @@
 package com.todo_app.mvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -30,14 +31,14 @@ public class TodoController {
 
    @GetMapping("/select")
    public ResponseEntity<Iterable<Todo>> selectAll() {
-      final Iterable<Todo> todos = todoService.selectAll();
+      final Iterable<Todo> todos = this.todoService.selectAll();
       log.info("Todos selected: " + todos.toString());
       return new ResponseEntity<>(todos, this.OK);
    }
 
    @GetMapping("/select/{id}")
    public Todo select(@PathVariable int id) {
-      final Todo todo = todoService.select(id);
+      final Todo todo = this.todoService.select(id);
       log.info("Todo Selected: " + todo.toString());
       return todo;
    }
@@ -53,6 +54,7 @@ public class TodoController {
    @PutMapping("/update")
    public ResponseEntity<String> update(@NotNull HttpServletRequest req) {
       final String json = req.getParameter("todo");
+      log.info("json: " + json);
       final String res = this.todoService.update(json);
       log.info(res);
       return new ResponseEntity<>(res, this.OK);
@@ -70,11 +72,5 @@ public class TodoController {
       final String res = this.todoService.delete(id);
       log.info(res);
       return new ResponseEntity<>(res, this.OK);
-   }
-
-   @PostMapping("/test")
-   public Todo test(@RequestBody Todo todo) {
-      System.out.println(todo);
-      return todo;
    }
 }

@@ -3,6 +3,7 @@ package com.todo_app.mvc.controller.service;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.todo_app.error.exception.TodoNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import java.util.Date;
 import com.todo_app.mvc.model.Todo;
@@ -37,7 +38,9 @@ public class TodoService {
    }
 
    public Iterable<Todo> selectAll() {
-      final Iterable<Todo> todos = this.todoRepository.findAll();
+      final Iterable<Todo> todos = this.todoRepository.findAll(
+              Sort.by("scadenza").ascending()
+      );
       if(todos == null)
          throw new TodoNotFoundException("Todos NOT FOUND.");
       return todos;
@@ -47,7 +50,7 @@ public class TodoService {
       return this.todoRepository
               .findById(id)
               .orElseThrow(() -> new TodoNotFoundException(
-                              String.format(this.message, id)
+                      String.format(this.message, id)
                       )
               );
    }
@@ -74,7 +77,7 @@ public class TodoService {
       final Todo todo = this.todoRepository
               .findById(id)
               .orElseThrow(() -> new TodoNotFoundException(
-                              String.format(this.message, id)
+                      String.format(this.message, id)
                       )
               );
       todo.setNome(nome);

@@ -7,7 +7,7 @@ const Loading = () => {
       <React.StrictMode>
          <div className={`${selectors.row} text-center`}>
             <h1 className='text-warning'>
-               The Component is Loading..
+               The Component is Loading...
             </h1>
          </div>
       </React.StrictMode>

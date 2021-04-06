@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import Actions from './components/actions';
+import formatDate from '../../../../js';
 
 
 const Todo = ({ todo }) => {
-   const trId = todo.scadenza.isDateExpired() ? 'Expired' : 'Not-expired';
+   const trId = todo.scadenza < formatDate() ? 'Expired' : 'Not-expired';
    return (
       <React.StrictMode>
-         <tr id={trId} data-tip=''
+         <tr 
+            id={trId} 
+            data-tip=''
             data-for={trId}>
             <td>
                {todo.nome}

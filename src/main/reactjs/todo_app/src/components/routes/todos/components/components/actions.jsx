@@ -21,7 +21,7 @@ const Actions = ({ todo }) => {
          <button
             className={`${selectors.btn}-warning`}
             id='mod'
-            onClick={() => updateTodo()}>
+            onClick={() => updateTodo(todo)}>
             <b>
                <i
                   className={`${selectors.icon}-wrench`}>

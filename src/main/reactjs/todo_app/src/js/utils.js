@@ -17,9 +17,19 @@ const handleError = error => {
    //throw error;
 };
 
+const httpOptions = {
+   withCredentials: true,
+   auth: {
+      'username': 'user',
+      'password': 'c00093fd-1e33-43ad-a98e-90c1c837bb4e'
+   }
+};
+
+
 export default baseUrl;
 
 export {
    routes,
+   httpOptions,
    handleError
 };
