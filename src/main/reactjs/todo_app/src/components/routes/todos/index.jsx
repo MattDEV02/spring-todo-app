@@ -7,25 +7,25 @@ import { select } from '../../../js';
 import './css/index.css';
 
 
-const todosData = [
-   {
-      'id': 1,
-      'nome': 'Fantacalcio',
-      'scadenza': '2020-02-03 14:10'
-   },
-   {
-      'id': 2,
-      'nome': 'Derby',
-      'scadenza': '2021-10-10 07:40'
-   }
-];
 
 const Todos = () => {
    const [todos, setTodos] = useState(null);
-   useEffect(() => {
-      //const todos = await select();
+   useEffect((async () => {
+      const res = await select();
+      const todosData = [
+         {
+            'id': 1,
+            'nome': 'Fantacalcio',
+            'scadenza': '2020-02-03 14:10'
+         },
+         {
+            'id': 2,
+            'nome': 'Derby',
+            'scadenza': '2021-10-10 07:40'
+         }
+      ];
       setTodos(todosData);
-   }, [todos]);
+   })(), [todos]);
    return (
       <React.StrictMode>
          <div className='row justify-content-center mt-5'>
@@ -50,7 +50,7 @@ const Todos = () => {
                               }
                            </tbody>
                         </table>
-                     </div> : 
+                     </div> :
                      <Loading />
                }
             </div>

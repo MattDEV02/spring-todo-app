@@ -1,7 +1,7 @@
-import {
+import formatDate, {
    insert
 } from '../../../../js';
-import formatDate from './utils';
+
 
 
 const now = formatDate();

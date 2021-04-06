@@ -1,34 +1,36 @@
 import axios from 'axios';
+import moment from 'moment';
 import baseUrl, {
    routes
 } from './utils';
 
 
-const select = async () => {
-   const res = await axios
-      .get(baseUrl + routes.select)
-      .catch(e => console.error(e.message));
-   const data = res.data;
-   console.log(data);
-   return data;
+const formatDate = (date, format = 'YYYY-MM-DDTHH:mm') => {
+   const momentDate = date ? moment(date) : moment();
+   return momentDate
+      .format(format);
 };
 
-const selectOne = async (id) => {
-   const res = await axios
-      .get(baseUrl + routes.select + id)
+const select = async () => {
+   const res = await axios.get(baseUrl + routes.select)
       .catch(e => console.error(e.message));
-   const data = res.data;
-   console.log(data);
-   return data;
+   console.log(res);
+   return res.data;
 };
 
 const insert = async (todo) => {
-   const res = await axios
-      .post(baseUrl + routes.insert)
+   const res = await 
+   axios( {
+      method: 'get',
+      url: 'http://127.0.0.1:80/select',
+      headers: {
+         'Authorization': 'Basic dXNlcjoxMzA1NjIyMi0wMjAzLTRmMjEtOTFhNS03YTgzYjk3NjNlODA=',
+      },
+      data: {}
+   })
       .catch(e => console.error(e.message));
-   const data = res.data;
-   console.log(data);
-   return data;
+   console.log(res)
+   return res;
 };
 
 const update = async (todo) => {
@@ -50,9 +52,10 @@ const _delete = async (id) => {
 };
 
 
+export default formatDate;
+
 export {
    select,
-   selectOne,
    insert,
    update,
    _delete
