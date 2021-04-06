@@ -14,7 +14,6 @@ import com.todo_app.mvc.model.Todo;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000/", maxAge = 3600)
 public class TodoController {
    @Autowired
    private TodoService todoService;

@@ -19,15 +19,18 @@ const select = async () => {
 };
 
 const insert = async (todo) => {
-   const res = await 
-   axios( {
-      method: 'get',
-      url: 'http://127.0.0.1:80/select',
-      headers: {
-         'Authorization': 'Basic dXNlcjoxMzA1NjIyMi0wMjAzLTRmMjEtOTFhNS03YTgzYjk3NjNlODA=',
-      },
-      data: {}
-   })
+   const res = await axios
+      .post(
+         baseUrl + routes.insert,
+         {},
+         {
+            withCredentials: true,
+            auth: {
+               'username': 'user',
+               'password': '45abab75-405b-4de0-8d40-0580d950f5fd'
+            }
+         }
+         )
       .catch(e => console.error(e.message));
    console.log(res)
    return res;
