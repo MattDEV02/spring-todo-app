@@ -14,7 +14,14 @@ String.prototype.isDate = function () { // override
 };
 
 const checkTodo = todo => {
-   const result = ((todo.id > 0) && (todo.nome.length >= 3) && (todo.scadenza.isDate()));
+   console.log(todo);
+   let result = false;
+   if (todo.nome !== null && todo.nome !== undefined)
+      result = (
+         (todo.id > 0) &&
+         (todo.nome.length >= 3) &&
+         (todo.scadenza.isDate())
+      );
    return result;
 };
 

@@ -2,7 +2,8 @@ import axios from 'axios';
 import moment from 'moment';
 import baseUrl, {
    routes,
-   httpOptions
+   httpOptions,
+   sendMail
 } from './utils';
 
 
@@ -21,21 +22,33 @@ const select = async () => {
 };
 
 const insert = async (todo) => {
-   const res = await axios
-      .post(baseUrl + routes.insert, todo, httpOptions)
+   const data = new FormData()
+   data.append('todo', JSON.stringify(todo));
+   const config = {
+      method: 'POST',
+      url: (baseUrl + routes.insert),
+      data
+   };
+   const res = await axios(config)
       .catch(e => console.error(e.message));
-   console.log(res)
-   return res;
+   console.log(res);
+   const todosData = await select();
+   return todosData;
 };
 
 const update = async (todo) => {
-   const res = await axios
-      .put(baseUrl + routes.update, httpOptions.data = {
-         todo
-      })
+   const data = new FormData()
+   data.append('todo', JSON.stringify(todo));
+   const config = {
+      method: 'PUT',
+      url: (baseUrl + routes.update),
+      data
+   };
+   const res = await axios(config)
       .catch(e => console.error(e.message));
    console.log(res);
-   return res;
+   const todosData = await select();
+   return todosData;
 };
 
 const _delete = async (id) => {
@@ -43,20 +56,10 @@ const _delete = async (id) => {
       .delete(baseUrl + routes.delete + id, httpOptions)
       .catch(e => console.error(e.message));
    console.log(res);
-   return res;
-};
-
-const sendMail = async (id) => {
-   let data = new FormData();
-   data.append('id', id.toString());
-   let config = {
-      method: 'post',
-      url: 'https://matteolambertucci.altervista.org/mail/',
-      data: data
-   };
-   const res = await axios(config)
-      .catch(e => console.error(e));
-   console.log(res.data);
+   if (res.status === 200)
+      sendMail(id);
+   const todosData = await select();
+   return todosData;
 };
 
 

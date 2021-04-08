@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import todoReducer from '../features/counter/counterSlice';
+import todosReducer from '../redux/todo';
 
 
 const store = configureStore({
   reducer: {
-    todo: todoReducer,
+    todos: todosReducer,
   },
 });
 

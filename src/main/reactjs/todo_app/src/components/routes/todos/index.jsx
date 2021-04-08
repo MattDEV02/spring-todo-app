@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Todo from './components/todo';
 import TodoHeader from './components/todosHeader';
 import FormLink from './components/formLink';
 import Loading from '../../loading';
 import { select } from '../../../js';
+import { selectTodos, setTodos } from '../../../redux/todo';
 import './css/index.css';
 
 
 const Todos = () => {
-   const [todos, setTodos] = useState(null);
+   const dispatch = useDispatch();
+   const todos = useSelector(selectTodos);
    useEffect(() => {
       (async () => {
          const todosData = await select();
-         setTodos(todosData);
+         dispatch(setTodos(todosData));
       })();
    }, []);
    return (
