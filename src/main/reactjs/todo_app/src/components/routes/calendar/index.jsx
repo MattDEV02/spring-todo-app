@@ -1,39 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+import moment from 'moment'
 import Loading from '../../loading';
 import getScadenze from './js';
+import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
-const todosData = [
-   {
-      'id': 1,
-      'nome': 'Fantacalcio',
-      'scadenza': '2020-02-03 14:10'
-   },
-   {
-      'id': 2,
-      'nome': 'Derby',
-      'scadenza': '2021-10-10 07:40'
-   }
-];
-
-const Calendar = () => {
+const Cal = () => {
    return (
+      <div className="row justify-content-center">
          <div className='col-12 mt-4'>
-            <FullCalendar
-               plugins={[dayGridPlugin]}
-               initialView="dayGridMonth"
-               weekends={false}
+            <Calendar
+               localizer={momentLocalizer(moment)}
                events={[
-                  { title: 'event 1', date: '2019-04-01' },
-                  { title: 'event 2', date: '2019-04-02' }
+                  {
+                     title: 'test',
+                     start: new Date(2021, 3, 8),
+                     end: new Date(2021, 3, 8)
+                  }
                ]}
+               startAccessor="start"
+               endAccessor="end"
+               style={{ minHeight: 600 }}
             />
          </div>
-
+      </div>
    );
 };
 
 
-export default Calendar;
+export default Cal;

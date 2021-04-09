@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import selectors from '../components/components/js';
+import selectors from '../js';
 
 
 const FormLink = () => {

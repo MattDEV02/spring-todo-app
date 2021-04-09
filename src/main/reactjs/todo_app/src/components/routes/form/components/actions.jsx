@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import selectors from '../../todos/components/components/js';
+import selectors from '../../todos/js';
 import '../../todos/components/components/css/index.css';
 
 

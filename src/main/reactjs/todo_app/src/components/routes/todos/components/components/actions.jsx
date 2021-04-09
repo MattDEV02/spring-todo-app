@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import selectors, {
+import { selectTodos, setTodos } from '../../../../../redux/todo';
+import selectors from '../../js';
+import {
    infoTodo, updateTodo, deleteTodo
 } from './js';
-import { selectTodos, setTodos } from '../../../../../redux/todo';
 import './css/index.css';
 
 
@@ -25,11 +26,13 @@ const Actions = ({ todo }) => {
          <button
             className={`${selectors.btn}-warning`}
             id='mod'
-            onClick={async () => {
-               const todosData = await updateTodo(todo);
-               if (todosData) 
-                  dispatch(setTodos(todosData));
-            }}>
+            onClick={
+               async () => {
+                  const todosData = await updateTodo(todo);
+                  if (todosData)
+                     dispatch(setTodos(todosData));
+               }
+            }>
             <b>
                <i
                   className={`${selectors.icon}-wrench`}>

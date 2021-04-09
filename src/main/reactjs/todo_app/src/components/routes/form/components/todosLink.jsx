@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import selectors from '../../todos/components/components/js';
+import selectors from '../../todos/js';
 
 
 const TodosLink = () => {

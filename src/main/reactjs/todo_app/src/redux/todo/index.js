@@ -11,8 +11,8 @@ const todosSlice = createSlice({
    reducers: {
       setTodos: (state, action) => {
          state.value = action.payload;
-      },
-   },
+      }
+   }
 });
 
 const  {

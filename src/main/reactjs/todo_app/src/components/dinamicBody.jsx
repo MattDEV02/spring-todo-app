@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import Todos from './routes/todos';
 import Form from './routes/form';
-import Calendar from './routes/calendar';
+import Cal from './routes/calendar';
 import Error404 from './routes/error404';
 import '../css/index.css';
 
@@ -23,7 +23,7 @@ const DynamicBody = () => {
          />
          <Route
             exact path='/calendar'
-            component={Calendar}
+            component={Cal}
          />
          <Route
             component={Error404}

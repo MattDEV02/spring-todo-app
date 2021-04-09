@@ -1,16 +1,17 @@
 Object.prototype.equals = function (todo) { // override
-   const result = (
+   return (
       (this.id === todo.id) &&
       (this.nome === todo.nome) &&
       (this.scadenza === todo.scadenza)
-   );
-   return result;
+   );;
 };
 
 String.prototype.isDate = function () { // override
    const d = new Date(this);
-   const result = ((d !== 'Invalid Date') && (!isNaN(d)));
-   return result;
+   return (
+      (d !== 'Invalid Date') &&
+      (!isNaN(d))
+   );
 };
 
 const checkTodo = todo => {

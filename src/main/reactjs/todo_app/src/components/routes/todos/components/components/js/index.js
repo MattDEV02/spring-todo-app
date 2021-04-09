@@ -6,14 +6,6 @@ import formatDate, {
 } from '../../../../../../js';
 
 
-const selectors = {
-   row: 'row justify-content-center mt-5',
-   btn: 'btn border border-dark mx-1 btn',
-   icon: 'fas fa',
-   sub: 'sub',
-   del: 'del'
-};
-
 const infoTodo = todo => {
    window.alert(
       `\nId: ${todo.id} 
@@ -51,8 +43,6 @@ const deleteTodo = id => {
    return condition;
 };
 
-
-export default selectors;
 
 export {
    infoTodo,

@@ -6,4 +6,8 @@
 input:hover {
   cursor: pointer;
 }
+
+.form-container {
+  min-width: 310px;
+}
 /*# sourceMappingURL=index.css.map */

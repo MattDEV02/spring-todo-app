@@ -4,6 +4,8 @@ import Todo from './components/todo';
 import TodoHeader from './components/todosHeader';
 import FormLink from './components/formLink';
 import Loading from '../../loading';
+import NoTodos from './components/noTodos';
+import selectors from './js';
 import { select } from '../../../js';
 import { selectTodos, setTodos } from '../../../redux/todo';
 import './css/index.css';
@@ -20,34 +22,39 @@ const Todos = () => {
    }, []);
    return (
       <React.StrictMode>
-         <div className='row justify-content-center mt-5'>
-            <div className='col-6'>
-               {
-                  todos ?
-                     <div className='table-responsive-sm'>
-                        <table className='table table-hover text-center'>
-                           <thead>
-                              <TodoHeader
-                                 keys={Object.keys(todos[0])}
-                              />
-                           </thead>
-                           <tbody>
-                              {
-                                 todos.map(todo =>
-                                    <Todo
-                                       todo={todo}
-                                       key={todo.id}
-                                    />
-                                 )
-                              }
-                           </tbody>
-                        </table>
-                     </div> :
-                     <Loading />
-               }
+         <>
+            <div className={selectors.row}>
+               <div className={selectors.col}>
+                  {
+                     todos ?
+                        <div className='table-responsive-sm'>
+                           {
+                              todos.check() ?
+                                 <table className={selectors.table}>
+                                    <thead>
+                                       <TodoHeader
+                                          keys={Object.keys(todos[0])}
+                                       />
+                                    </thead>
+                                    <tbody>
+                                       {
+                                          todos.map(todo =>
+                                             <Todo
+                                                todo={todo}
+                                                key={todo.id}
+                                             />
+                                          )
+                                       }
+                                    </tbody>
+                                 </table> : <NoTodos />
+                           }
+                        </div> :
+                        <Loading />
+                  }
+               </div>
             </div>
-         </div>
-         <FormLink />
+            <FormLink />
+         </>
       </React.StrictMode>
    );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import TodosLink from '../form/components/todosLink';
-import selectors from '../todos/components/components/js';
+import selectors from '../todos/js';
 
 
 const Error404 = () => {
@@ -9,7 +9,7 @@ const Error404 = () => {
    return (
       <React.StrictMode>
          <div className={`${selectors.row}`}>
-            <div className='col-6 bg-danger'>
+            <div className='col-sm-12 col-md-10 col-lg-9 col-xl-7 col-xxl-5 bg-danger'>
                <h1 className='text-light'>
                   {text}
                </h1>
