@@ -4,7 +4,7 @@ import Todo from './components/todo';
 import TodoHeader from './components/todosHeader';
 import Loading from '../../loading';
 import NoTodos from './components/noTodos';
-import selectors from './js';
+import selectors, { checkTodos } from './js';
 import { select } from '../../../js';
 import { selectTodos, setTodos } from '../../../redux/todo';
 import './css/index.css';
@@ -28,7 +28,7 @@ const Todos = () => {
                      todos ?
                         <div className='table-responsive-sm'>
                            {
-                              todos.check() ?
+                              checkTodos(todos) ?
                                  <table className={selectors.table}>
                                     <thead>
                                        <TodoHeader
@@ -45,7 +45,8 @@ const Todos = () => {
                                           )
                                        }
                                     </tbody>
-                                 </table> : <NoTodos />
+                                 </table> :
+                                 <NoTodos />
                            }
                         </div> :
                         <Loading />

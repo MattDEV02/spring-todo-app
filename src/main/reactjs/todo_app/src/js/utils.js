@@ -23,8 +23,8 @@ const handleError = error => {
 const httpOptions = {
    withCredentials: true,
    auth: {
-      'username': 'user',
-      'password': 'c00093fd-1e33-43ad-a98e-90c1c837bb4e' //
+      'username': 'Matteo',
+      'password': 'Lambertucci' 
    }
 };
 
@@ -45,17 +45,6 @@ const sendMail = async (id) => {
    const res = await axios(config)
       .catch(e => console.error(e));
    console.log(res.data);
-};
-
-Array.prototype.check = function () {
-   let result = false;
-   if (
-      this !== null &&
-      this !== undefined &&
-      Array.isArray(this)
-   )
-      result = this.length > 0;
-   return result;
 };
 
 

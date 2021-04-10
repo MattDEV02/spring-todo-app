@@ -17,9 +17,21 @@ const isExpired = (date = formatDate()) => {
    return (date <= now) ? 'Expired' : 'Not-expired';
 };
 
+const checkTodos = todos => {
+   let result = false;
+   if (
+      todos !== null &&
+      todos !== undefined &&
+      Array.isArray(todos)
+   )
+      result = todos.length > 0;
+   return result;
+};
+
 
 export default selectors;
 
 export {
+   checkTodos,
    isExpired
 };

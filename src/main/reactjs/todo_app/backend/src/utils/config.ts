@@ -4,7 +4,7 @@ import path from 'path';
 const
    protocol: string = 'http',
    host: string = '127.0.0.1',
-   port: number = 5000,
+   port: number = 8000,
    folder: string = path.join(__dirname, '../../..', 'build');
 
 const cb = (error: Error): void => {
