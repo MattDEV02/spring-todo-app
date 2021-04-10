@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import Actions from './components/actions';
-import TodosLink from './components/todosLink';
 import selectors, { submitTodo, handleForm, now } from './js';
 import './css/index.css';
 
@@ -64,7 +63,6 @@ const Form = () => {
                </div>
             </div>
          </div>
-         <TodosLink />
       </React.StrictMode >
    );
 };

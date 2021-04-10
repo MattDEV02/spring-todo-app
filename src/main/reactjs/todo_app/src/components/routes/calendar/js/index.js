@@ -1,26 +1,13 @@
-import formatDate from '../../form/js';
+import getEvent from './utils';
 
-
-const getEvent = todo => {
-   console.log(todo.nome);
-   const
-      title = 'title',
-      date = '2020-10-10';
-   const event = {
-      title,
-      date
-   };
-   return event;
-};
 
 const getScadenze = todos => {
-   console.log('Events', todos);
-   return [
-      {
-         title: '1',
-         date: '2020-10-10'
-      }
-   ];
+   let events = [];
+   todos.map(todo =>
+      events.push(getEvent(todo))
+   );
+   console.log(events);
+   return events;
 };
 
 

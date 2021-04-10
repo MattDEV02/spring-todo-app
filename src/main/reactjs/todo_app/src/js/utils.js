@@ -21,13 +21,17 @@ const handleError = error => {
 };
 
 const httpOptions = {
-   /* 
    withCredentials: true,
    auth: {
       'username': 'user',
-      'password': 'c00093fd-1e33-43ad-a98e-90c1c837bb4e'
+      'password': 'c00093fd-1e33-43ad-a98e-90c1c837bb4e' //
    }
-   */
+};
+
+const adjustConfig = config => {
+   config.withCredentials = httpOptions.withCredentials;
+   config.auth = httpOptions.auth;
+   return config;
 };
 
 const sendMail = async (id) => {
@@ -43,6 +47,17 @@ const sendMail = async (id) => {
    console.log(res.data);
 };
 
+Array.prototype.check = function () {
+   let result = false;
+   if (
+      this !== null &&
+      this !== undefined &&
+      Array.isArray(this)
+   )
+      result = this.length > 0;
+   return result;
+};
+
 
 export default baseUrl;
 
@@ -50,5 +65,6 @@ export {
    routes,
    httpOptions,
    handleError,
-   sendMail
+   sendMail,
+   adjustConfig
 };

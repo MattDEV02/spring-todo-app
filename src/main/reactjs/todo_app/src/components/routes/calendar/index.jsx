@@ -1,32 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment'
 import Loading from '../../loading';
+import { selectTodos, setTodos } from '../../../redux/todo';
+import { select } from '../../../js';
 import getScadenze from './js';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import 'react-big-calendar/lib/addons/dragAndDrop/styles.css';
+import './css/index.css';
 
 
-const Cal = () => {
+const TodosCalendar = () => {
+   const dispatch = useDispatch();
+   const todos = useSelector(selectTodos);
+   useEffect(() => {
+      (async () => {
+         const todosData = await select();
+         dispatch(setTodos(todosData));
+      })();
+   }, []);
    return (
-      <div className="row justify-content-center">
-         <div className='col-12 mt-4'>
-            <Calendar
-               localizer={momentLocalizer(moment)}
-               events={[
-                  {
-                     title: 'test',
-                     start: new Date(2021, 3, 8),
-                     end: new Date(2021, 3, 8)
-                  }
-               ]}
-               startAccessor="start"
-               endAccessor="end"
-               style={{ minHeight: 600 }}
-            />
+      <div className='row justify-content-center'>
+         <div className='col-12 mt-5'>
+            {
+               todos ?
+                  <Calendar
+                     localizer={momentLocalizer(moment)}
+                     events={getScadenze(todos)}
+                     startAccessor='start'
+                     endAccessor='end'
+                     style={{ minHeight: 600 }}
+                  /> : <Loading />
+            }
          </div>
       </div>
    );
 };
 
 
-export default Cal;
+export default TodosCalendar;

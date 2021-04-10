@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Todo from './components/todo';
 import TodoHeader from './components/todosHeader';
-import FormLink from './components/formLink';
 import Loading from '../../loading';
 import NoTodos from './components/noTodos';
 import selectors from './js';
@@ -53,7 +52,6 @@ const Todos = () => {
                   }
                </div>
             </div>
-            <FormLink />
          </>
       </React.StrictMode>
    );

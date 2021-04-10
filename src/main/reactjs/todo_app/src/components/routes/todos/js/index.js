@@ -11,17 +11,6 @@ const selectors = {
    del: 'del'
 };
 
-Array.prototype.check = function () {
-   let result = false;
-   if (
-      this !== null &&
-      this !== undefined &&
-      Array.isArray(this)
-   ) 
-      result = this.length > 0;
-   return result;
-};
-
 const isExpired = (date = formatDate()) => {
    date = formatDate(date);
    const now = formatDate();

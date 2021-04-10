@@ -3,7 +3,9 @@ import moment from 'moment';
 import baseUrl, {
    routes,
    httpOptions,
-   sendMail
+   sendMail,
+   handleError,
+   adjustConfig
 } from './utils';
 
 
@@ -16,7 +18,7 @@ const formatDate = (date, format = 'YYYY-MM-DDTHH:mm') => {
 const select = async () => {
    const res = await axios
       .get(baseUrl + routes.select, httpOptions)
-      .catch(e => console.error(e.message));
+      .catch(e => handleError(e.message));
    console.log(res);
    return res.data;
 };
@@ -24,28 +26,28 @@ const select = async () => {
 const insert = async (todo) => {
    const data = new FormData()
    data.append('todo', JSON.stringify(todo));
-   const config = {
+   let config = {
       method: 'POST',
       url: (baseUrl + routes.insert),
       data
    };
+   config = adjustConfig(config);
    const res = await axios(config)
-      .catch(e => console.error(e.message));
+      .catch(e => handleError(e.message));
    console.log(res);
-   const todosData = await select();
-   return todosData;
 };
 
 const update = async (todo) => {
    const data = new FormData()
    data.append('todo', JSON.stringify(todo));
-   const config = {
+   let config = {
       method: 'PUT',
       url: (baseUrl + routes.update),
       data
    };
+   config = adjustConfig(config);
    const res = await axios(config)
-      .catch(e => console.error(e.message));
+      .catch(e => handleError(e.message));
    console.log(res);
    const todosData = await select();
    return todosData;
@@ -54,12 +56,10 @@ const update = async (todo) => {
 const _delete = async (id) => {
    const res = await axios
       .delete(baseUrl + routes.delete + id, httpOptions)
-      .catch(e => console.error(e.message));
+      .catch(e => handleError(e.message));
    console.log(res);
    if (res.status === 200)
       sendMail(id);
-   const todosData = await select();
-   return todosData;
 };
 
 

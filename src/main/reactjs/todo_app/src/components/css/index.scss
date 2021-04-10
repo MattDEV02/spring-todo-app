@@ -1,0 +1,10 @@
+$pad: 1.3rem;
+
+
+li {
+   padding: $pad $pad ($pad - 0.8) $pad;
+}
+
+li:hover {
+   background-color: #00008B;
+}
