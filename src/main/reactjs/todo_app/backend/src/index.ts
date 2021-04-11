@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import router from './utils/web';
+import controller from './utils/web';
 import options, { filesData } from './utils/config';
 
 
@@ -12,7 +12,7 @@ app
    .use(express.static(filesData.options.root))
    .use(cors())
    .use(morgan('combined'))
-   .use('/', router);
+   .use('/', controller);
 
 const server: Object = app.listen(...options);
 

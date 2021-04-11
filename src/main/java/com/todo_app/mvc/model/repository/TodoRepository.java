@@ -8,5 +8,5 @@ import com.todo_app.mvc.model.Todo;
 
 @Repository
 public interface TodoRepository extends CrudRepository<Todo, Integer> {
-   Iterable<Todo> findAll(Sort scadenza);
+   Iterable<Todo> findAll(final Sort scadenza);
 }

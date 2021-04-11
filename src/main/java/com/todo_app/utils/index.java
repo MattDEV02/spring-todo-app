@@ -11,6 +11,7 @@ public class index {
    public final static String format = "yyyy-MM-dd HH:mm:ss";
 
    public static void handleException(final Exception e) {
+      System.err.println("Exception threw: ");
       e.printStackTrace(System.err);
    }
 
@@ -24,6 +25,7 @@ public class index {
       }
       return node;
    }
+
    public static Date dateCasting(final String date) {
       Date newDate = null;
       try {

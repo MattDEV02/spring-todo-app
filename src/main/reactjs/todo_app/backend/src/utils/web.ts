@@ -2,9 +2,9 @@ import { Router, Request, Response } from 'express';
 import { filesData } from './config';
 
 
-const router: Router = Router();
+const controller: Router = Router();
 
-router
+controller
 	.all('/',
 		(req: Request, res: Response): void =>
 			res.sendFile(filesData.file, filesData.options)
@@ -12,8 +12,11 @@ router
 	.all('/form',
 		(req: Request, res: Response): void =>
 			res.sendFile(filesData.file, filesData.options)
+	)
+	.all('/calendar',
+		(req: Request, res: Response): void =>
+			res.sendFile(filesData.file, filesData.options)
 	);
 
 
-
-export default router;
+export default controller;

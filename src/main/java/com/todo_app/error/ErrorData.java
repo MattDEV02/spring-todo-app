@@ -10,11 +10,16 @@ public class ErrorData {
 
    public ErrorData(final Date timestamp, final String message, final String details) {
 
-      // control...
-
-      this.timestamp = timestamp;
-      this.message = message;
-      this.details = details;
+      if(
+              timestamp != null &&
+                      message.length() >= 3 &&
+                      details.length() >= 3
+      ) {
+         this.timestamp = timestamp;
+         this.message = message;
+         this.details = details;
+      } else
+         System.err.println("Error in ErrorData Class Constructor");
    }
 
    public ErrorData(ErrorData errorData) {
@@ -23,7 +28,7 @@ public class ErrorData {
          this.setMessage(errorData.message);
          this.setDetails(errorData.details);
       } else
-         System.err.println("");
+         System.err.println("Error in ErrorData Class Copy Constructor");
    }
 
    public Date getTimestamp() {

@@ -41,11 +41,11 @@ public class Todo {
 
    public int getId() { return this.id; }
 
-   public void setId(int id) { this.id = id; }
+   public void setId(final int id) { this.id = id; }
 
    public String getNome() { return this.nome; }
 
-   public void setNome(String nome) {
+   public void setNome(final String nome) {
       this.nome = nome;
    }
 
@@ -53,17 +53,17 @@ public class Todo {
       return this.scadenza;
    }
 
-   public void setScadenza(Date scadenza) {
+   public void setScadenza(final Date scadenza) {
       this.scadenza = scadenza;
    }
 
    public Date getCreatedAt() { return this.createdAt; }
 
-   public void setCreatedAt(Date created_at) { this.createdAt = created_at; }
+   public void setCreatedAt(final Date created_at) { this.createdAt = created_at; }
 
    public Date getUpdatedAt() { return this.updatedAt; }
 
-   public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
+   public void setUpdatedAt(final Date updatedAt) { this.updatedAt = updatedAt; }
 
    @Override
    public String toString() {

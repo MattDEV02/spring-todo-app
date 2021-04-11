@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.filesData = void 0;
 const path_1 = __importDefault(require("path"));
-const protocol = 'http', host = '127.0.0.1', port = 5000, folder = path_1.default.join(__dirname, '../../..', 'build');
+const protocol = 'http', host = '127.0.0.1', port = 8000, folder = path_1.default.join(__dirname, '../../..', 'build');
 const cb = (error) => {
     if (error)
         throw error;
