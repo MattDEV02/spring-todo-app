@@ -16,8 +16,10 @@ const routes = {
 };
 
 const handleError = error => {
-   console.error(error.message);
-   throw error;
+   const msg = error.message;
+   console.error(msg);
+   window.alert(msg);
+   //throw error;
 };
 
 const httpOptions = {

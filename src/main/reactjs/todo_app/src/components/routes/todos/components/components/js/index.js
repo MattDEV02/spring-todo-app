@@ -27,8 +27,8 @@ const updateTodo = async (todo) => {
    if ((checkTodo(newTodo)) && (!newTodo.equals(todo))) {
       await update(newTodo);
       console.log(todo, newTodo);
-      const todosData = await select();
-      return todosData;
+      const res = await select();
+      return res.data;
    } else
       window.alert('Todo non Valido.');
 };

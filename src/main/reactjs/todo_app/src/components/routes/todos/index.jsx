@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Todo from './components/todo';
 import TodoHeader from './components/todosHeader';
@@ -13,10 +13,14 @@ import './css/index.css';
 const Todos = () => {
    const dispatch = useDispatch();
    const todos = useSelector(selectTodos);
+   const [err, setErr] = useState(false);
    useEffect(() => {
       (async () => {
-         const todosData = await select();
-         dispatch(setTodos(todosData));
+         const res = await select();
+         if (res)
+            dispatch(setTodos(res.data));
+         else
+            setErr(true);
       })();
    }, []);
    return (
@@ -49,7 +53,9 @@ const Todos = () => {
                                  <NoTodos />
                            }
                         </div> :
-                        <Loading />
+                        <Loading
+                           err={err}
+                        />
                   }
                </div>
             </div>
