@@ -72,7 +72,7 @@ public class Todo {
               "\nScadenza: %s," +
               "\nId: %d,\nData creazione: %s," +
               "\nData aggiornamento: %s" +
-              "";
+              "\n";
       return String.format(
               pattern,
               this.nome,

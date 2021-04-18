@@ -16,6 +16,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="entityManagerFactory" value="4e534acf-1312-435f-b26a-8c58393575a4" />
+          <factory-entry name="todo_app" value="9a58fa66-115d-4d51-93ec-cb93dc5bbf67" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
