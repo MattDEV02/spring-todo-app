@@ -6,11 +6,11 @@
 
   
 
-Dynamic **todo application** that can easly **insert, select, update and delete the todos**.
+Dynamic **todo application** that can easily **insert, select, update and delete the todos**.
 
 The **todos** are visualized with a dynamic **table** and a useful **calendar**.
 
-The **todos** in the table are ordered by the expire date, en fact the expired todos have light opacity.
+The **todos** in the table are sorted by the expiration date, en fact the expired todos have light opacity.
 
   
 
