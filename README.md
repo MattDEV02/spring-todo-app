@@ -26,6 +26,8 @@ The **todos** in the table are sorted by the expiration date, en fact the expire
 
 -  **CSS, SASS, Bootstrap**
 
+-  **HTML**
+
 -  **SQL, MariaDB**
 
 -  **GIT, GITHUB**
