@@ -14,7 +14,7 @@ The **todos** in the table are sorted by the expiration date, en fact the expire
 
   
 
-## Languages, Frameworks, and Tools used
+## Languages, Frameworks, Libraries and Tools used
 
   
 
@@ -31,6 +31,8 @@ The **todos** in the table are sorted by the expiration date, en fact the expire
 -  **SQL, MariaDB**
 
 -  **GIT, GITHUB**
+
+-  **IntelliJ IDEA, VS-code**
 
 -  **MarkDown**
 
