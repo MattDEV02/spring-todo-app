@@ -12,7 +12,8 @@ const routes = {
    insert: 'insert/',
    select: 'select/',
    update: 'update/',
-   delete: 'delete/'
+   delete: 'delete/',
+   calculations: 'calculations/'
 };
 
 const handleError = error => {
@@ -26,7 +27,7 @@ const httpOptions = {
    withCredentials: true,
    auth: {
       'username': 'Matteo',
-      'password': 'Lambertucci' 
+      'password': 'Lambertucci'
    }
 };
 

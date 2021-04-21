@@ -5,7 +5,7 @@ import com.todo_app.error.exception.TodoNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import java.util.Date;
+import java.util.*;
 import com.todo_app.mvc.model.Todo;
 import com.todo_app.mvc.model.repository.TodoRepository;
 import com.todo_app.utils.index;
@@ -39,7 +39,8 @@ public class TodoService {
 
    public Iterable<Todo> selectAll() {
       final Iterable<Todo> todos = this.todoRepository.findAll(
-              Sort.by("scadenza").ascending()
+              Sort.by("scadenza")
+                      .ascending()
       );
       if(todos == null)
          throw new TodoNotFoundException("Todos NOT FOUND.");
@@ -85,5 +86,12 @@ public class TodoService {
       todoRepository.save(todo);
       this.todoRepository.save(todo);
       return String.format("Todo Id = %d updated.", id);
+   }
+
+   public Iterable<Map<Date, Integer>> findCalculations() {
+      final Iterable<Map<Date, Integer>> todosCalculations = this.todoRepository.findCalculations();
+      if(todosCalculations == null)
+         throw new TodoNotFoundException("Todos Calculations NOT FOUND.");
+      return todosCalculations;
    }
 }

@@ -25,23 +25,25 @@ const TodosCalendar = () => {
       })();
    }, []);
    return (
-      <div className='row justify-content-center'>
-         <div className='col-12 mt-5'>
-            {
-               todos ?
-                  <Calendar
-                     localizer={momentLocalizer(moment)}
-                     events={getScadenze(todos)}
-                     startAccessor='start'
-                     endAccessor='end'
-                     style={{ minHeight: 600 }}
-                  /> :
-                  <Loading
-                     err={err}
-                  />
-            }
+      <>
+         <div className='row justify-content-center'>
+            <div className='col-12 mt-5'>
+               {
+                  todos ?
+                     <Calendar
+                        localizer={momentLocalizer(moment)}
+                        events={getScadenze(todos)}
+                        startAccessor='start'
+                        endAccessor='end'
+                        style={{ minHeight: 600 }}
+                     /> :
+                     <Loading
+                        err={err}
+                     />
+               }
+            </div>
          </div>
-      </div>
+      </>
    );
 };
 

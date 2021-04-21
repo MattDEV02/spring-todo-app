@@ -62,11 +62,20 @@ const _delete = async (id) => {
       sendMail(id);
 };
 
+const calculations = async () => {
+   const res = await axios
+      .get(baseUrl + routes.calculations, httpOptions)
+      .catch(e => handleError(e));
+   console.log(res);
+   return res;
+};
+
 export default formatDate;
 
 export {
    select,
    insert,
    update,
-   _delete
+   _delete,
+   calculations
 };

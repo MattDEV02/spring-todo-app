@@ -34,6 +34,14 @@ const Navbar = () => {
                   Calendar
                </NavLink>
             </li>
+            <li
+               className={nav.item}>
+               <NavLink
+                  exact to='/chart'
+                  className={nav.brand}>
+                  Chart
+               </NavLink>
+            </li>
          </ul>
       </nav>
    );

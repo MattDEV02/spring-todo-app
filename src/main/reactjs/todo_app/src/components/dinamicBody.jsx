@@ -6,6 +6,7 @@ import {
 import Todos from './routes/todos';
 import Form from './routes/form';
 import TodosCalendar from './routes/calendar';
+import TodosChart from './routes/chart';
 import Error404 from './routes/error404';
 import '../css/index.css';
 
@@ -24,6 +25,10 @@ const DynamicBody = () => {
          <Route
             exact path='/calendar'
             component={TodosCalendar}
+         />
+         <Route
+            exact path='/chart'
+            component={TodosChart}
          />
          <Route
             component={Error404}

@@ -8,6 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import org.slf4j.*;
 import org.jetbrains.annotations.NotNull;
+import java.util.*;
 import com.todo_app.mvc.controller.service.TodoService;
 import com.todo_app.mvc.model.Todo;
 
@@ -35,10 +36,17 @@ public class TodoController {
    }
 
    @GetMapping("/select/{id}")
-   public Todo select(@PathVariable int id) {
+   public ResponseEntity<Todo> select(@PathVariable int id) {
       final Todo todo = this.todoService.select(id);
       log.info("Todo Selected: " + todo.toString());
-      return todo;
+      return new ResponseEntity<>(todo, this.OK);
+   }
+
+   @GetMapping("/calculations")
+   public ResponseEntity<Iterable<Map<Date, Integer>>> calculations() {
+      final Iterable<Map<Date, Integer>> calculations = this.todoService.findCalculations();
+      log.info("Todos Calculations...");
+      return new ResponseEntity<>(calculations, this.OK);
    }
 
    @PostMapping("/insert")

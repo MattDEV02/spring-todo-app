@@ -1,0 +1,14 @@
+#chart-container {
+  background-color: #272727;
+}
+
+select,
+option {
+  font-weight: bold;
+  border: 1px solid getColor("black");
+}
+
+select:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=index.css.map */

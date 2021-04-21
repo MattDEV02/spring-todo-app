@@ -1,0 +1,16 @@
+$colors: ('grey': #272727, 'black': #000000);
+
+
+#chart-container {
+   background-color: map-get($colors, 'grey');
+}
+
+select,
+option {
+   font-weight: bold;
+   border: 1px solid getColor('black');
+}
+
+select:hover {
+   cursor: pointer;
+}

@@ -17,9 +17,9 @@ const Todos = () => {
    useEffect(() => {
       (async () => {
          const res = await select();
-         if (res)
-            dispatch(setTodos(res.data));
-         else
+         res ?
+            dispatch(setTodos(res.data))
+            :
             setErr(true);
       })();
    }, []);
