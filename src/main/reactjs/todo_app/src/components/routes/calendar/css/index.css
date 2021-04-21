@@ -1,4 +1,19 @@
-button {
+div.rbc-calendar,
+div.rbc-day-bg {
+  border: 1px solid #000000;
+  background-color: #B5B0B0;
+}
+
+div.rbc-day-bg {
+  border-bottom: none;
+}
+
+div.rbc-month-view {
+  border-top: 1px solid #000000;
+}
+
+button,
+span.rbc-toolbar-label {
   font-weight: bold;
 }
 /*# sourceMappingURL=index.css.map */

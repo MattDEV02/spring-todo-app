@@ -1,3 +1,22 @@
-button {
+$b: 1px solid #000000;
+$default: none;
+
+
+div.rbc-calendar,
+div.rbc-day-bg {
+   border: $b;
+   background-color: #B5B0B0;
+}
+
+div.rbc-day-bg {
+   border-bottom: $default;
+}
+
+div.rbc-month-view {
+   border-top: $b;
+}
+
+button,
+span.rbc-toolbar-label {
    font-weight: bold;
 }
