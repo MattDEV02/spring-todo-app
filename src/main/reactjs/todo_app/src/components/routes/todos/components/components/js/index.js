@@ -30,7 +30,7 @@ const updateTodo = async (todo) => {
       const res = await select();
       return res.data;
    } else
-      window.alert('Todo non Valido.');
+      window.alert('Todo non Valido. \n \nMinimo 3 caratteri + Data Esistente.');
 };
 
 const deleteTodo = id => {

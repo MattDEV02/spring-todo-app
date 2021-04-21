@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ReactTooltip from 'react-tooltip';
 import Actions from './components/actions';
 import selectors, { submitTodo, handleForm, now } from './js';
@@ -10,7 +10,7 @@ const Form = () => {
       [nome, setNome] = useState(''),
       [scadenza, setScadenza] = useState(now);
    return (
-      <React.StrictMode>
+      <>
          <div className={selectors.row}>
             <div className={selectors.col}>
                <div className={`${selectors.form} p-4 mt-5 text-center`}>
@@ -63,7 +63,7 @@ const Form = () => {
                </div>
             </div>
          </div>
-      </React.StrictMode >
+      </>
    );
 };
 

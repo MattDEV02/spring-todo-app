@@ -1,11 +1,10 @@
-import React from 'react'
 import './css/todoHeader/index.css';
 
 
 const TodoHeader = props => {
    const keys = props.keys;
    return (
-      <React.StrictMode>
+      <>
          <tr>
             <th>
                {keys[1]}
@@ -17,7 +16,7 @@ const TodoHeader = props => {
                azioni
             </th>
          </tr>
-      </React.StrictMode>
+      </>
    );
 };
 

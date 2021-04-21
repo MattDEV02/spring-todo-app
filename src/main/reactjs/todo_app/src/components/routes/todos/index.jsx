@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Todo from './components/todo';
 import TodoHeader from './components/todosHeader';
@@ -24,7 +24,7 @@ const Todos = () => {
       })();
    }, []);
    return (
-      <React.StrictMode>
+      <>
          <>
             <div className={selectors.row}>
                <div className={selectors.col}>
@@ -60,7 +60,7 @@ const Todos = () => {
                </div>
             </div>
          </>
-      </React.StrictMode>
+      </>
    );
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import DynamicChart from './components/dynamicChart';
 import Loading from '../../loading';
 import { calculations } from '../../../js';

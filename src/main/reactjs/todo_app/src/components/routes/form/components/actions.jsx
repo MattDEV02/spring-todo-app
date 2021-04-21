@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import selectors from '../../todos/js';
 import '../../todos/components/components/css/index.css';
@@ -7,7 +6,7 @@ import '../../todos/components/components/css/index.css';
 const Actions = () => {
    const tooltipClass = 'fw-bold';
    return (
-      <React.StrictMode>
+      <>
          <div className='col-4'>
             <button
                type='submit'
@@ -44,7 +43,7 @@ const Actions = () => {
                Reset Form
             </ReactTooltip>
          </div>
-      </React.StrictMode>
+      </>
    );
 };
 

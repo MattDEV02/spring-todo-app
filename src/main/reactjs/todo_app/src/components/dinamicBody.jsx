@@ -1,4 +1,3 @@
-import React from 'react';
 import {
    Switch,
    Route,
@@ -13,27 +12,29 @@ import '../css/index.css';
 
 const DynamicBody = () => {
    return (
-      <Switch>
-         <Route
-            exact path='/'
-            component={Todos}
-         />
-         <Route
-            exact path='/form'
-            component={Form}
-         />
-         <Route
-            exact path='/calendar'
-            component={TodosCalendar}
-         />
-         <Route
-            exact path='/chart'
-            component={TodosChart}
-         />
-         <Route
-            component={Error404}
-         />
-      </Switch>
+      <>
+         <Switch>
+            <Route
+               exact path='/'
+               component={Todos}
+            />
+            <Route
+               exact path='/form'
+               component={Form}
+            />
+            <Route
+               exact path='/calendar'
+               component={TodosCalendar}
+            />
+            <Route
+               exact path='/chart'
+               component={TodosChart}
+            />
+            <Route
+               component={Error404}
+            />
+         </Switch>
+      </>
    );
 }
 

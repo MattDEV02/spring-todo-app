@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import Actions from './components/actions';
 import { isExpired } from '../js';
@@ -7,7 +6,7 @@ import { isExpired } from '../js';
 const Todo = ({ todo }) => {
    const trId = isExpired(todo.scadenza);
    return (
-      <React.StrictMode>
+      <>
          <tr
             id={trId}
             data-tip=''
@@ -31,7 +30,7 @@ const Todo = ({ todo }) => {
          >
             {`${trId} Todo`}
          </ReactTooltip>
-      </React.StrictMode>
+      </>
    );
 };
 

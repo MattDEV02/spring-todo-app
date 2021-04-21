@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTodos, setTodos } from '../../../../../redux/todo';
 import selectors from '../../js';
@@ -12,7 +11,7 @@ const Actions = ({ todo }) => {
    const dispatch = useDispatch();
    const todos = useSelector(selectTodos);
    return (
-      <React.StrictMode>
+      <>
          <button
             className={`${selectors.btn}-info`}
             id='inf'
@@ -56,7 +55,7 @@ const Actions = ({ todo }) => {
                </i>
             </b>
          </button>
-      </React.StrictMode>
+      </>
    );
 };
 

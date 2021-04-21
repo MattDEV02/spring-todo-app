@@ -1,10 +1,10 @@
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 
-const BarChart = ({ config }) => {
+const LineChart = ({ config }) => {
    return (
       <>
-         <Bar
+         <Line
             data={config.data}
             options={config.options}
             height={config.height}
@@ -14,4 +14,4 @@ const BarChart = ({ config }) => {
 };
 
 
-export default BarChart;
+export default LineChart;

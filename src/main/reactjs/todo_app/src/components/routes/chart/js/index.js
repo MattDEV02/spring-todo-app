@@ -1,11 +1,8 @@
 import adjustCalculations, {
    title,
-   height,
-   getColors
+   height
 } from './utils';
 
-
-let colors = null;
 
 const default_colors = {
    darkred: '#8B0000',
@@ -13,29 +10,31 @@ const default_colors = {
    white: '#FFFFFF'
 };
 
-
 const data = {
    datasets: [{
       label: title,
       backgroundColor: default_colors.darkred,
       borderColor: default_colors.gold,
-      borderWidth: 0.5,
+      borderWidth: 1.0,
       pointBackgroundColor: default_colors.gold,
-      pointRadius: 3,
+      pointRadius: 5,
+      fill: false,
    }]
 };
 
 const options = {
-   legend: {
-      labels: {
-         fontColor: default_colors.white,
-         fontSize: 14,
-      }
-   },
+   responsive: true,
    title: {
       display: true,
       text: title,
-   }
+   },
+   scales: {
+      yAxes: [{
+         ticks: {
+            beginAtZero: true,
+         },
+      }, ],
+   },
 };
 
 const config = {
@@ -49,7 +48,6 @@ const setConfig = calculations => {
    const
       labels = calculations.labels,
       data = calculations.data;
-   colors = getColors(labels.length);
    const Configdata = config.data;
    Configdata.labels = labels;
    Configdata.datasets[0].data = data;
@@ -57,21 +55,9 @@ const setConfig = calculations => {
 };
 
 const chartType = { // Like an Enum
-   line: 'line',
    bar: 'bar',
    horizontalBar: 'horizontal-bar',
-   radar: 'radar',
-   pie: 'pie',
-   doughnut: 'doughnut',
-   polar: 'polar'
-};
-
-const isMulticolor = type => {
-   return (
-      type === 'pie' ||
-      type === 'doughnut' ||
-      type === 'polar'
-   );
+   line: 'line',
 };
 
 const initialState = chartType.bar
@@ -83,10 +69,8 @@ export default config;
 
 export {
    setConfig,
-   isMulticolor,
    initialState,
    default_colors,
    chartType,
-   tooltipID,
-   colors
+   tooltipID
 };

@@ -28,22 +28,6 @@ const Menu = ({ handleSelect }) => {
                value={chartType.line}>
                Lineare
             </option>
-            <option
-               value={chartType.radar}>
-               Radar
-            </option>
-            <option
-               value={chartType.pie}>
-               Torta
-            </option>
-            <option
-               value={chartType.doughnut}>
-               Ciambella
-            </option>
-            <option
-               value={chartType.polar}>
-               Polare
-            </option>
          </select>
       </>
    );

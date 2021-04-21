@@ -1,12 +1,12 @@
 import { Bar } from 'react-chartjs-2';
 
 
-const BarChart = ({ config }) => {
+const HorizontalBarChart = ({ config }) => {
    return (
       <>
          <Bar
             data={config.data}
-            options={config.options}
+            options={{ indexAxis: 'y' }}
             height={config.height}
          />
       </>
@@ -14,4 +14,5 @@ const BarChart = ({ config }) => {
 };
 
 
-export default BarChart;
+export default HorizontalBarChart;
+
