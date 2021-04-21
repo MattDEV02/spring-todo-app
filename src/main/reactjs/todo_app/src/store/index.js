@@ -4,8 +4,8 @@ import todosReducer from '../redux/todo';
 
 const store = configureStore({
   reducer: {
-    todos: todosReducer,
-  },
+    todos: todosReducer
+  }
 });
 
 
