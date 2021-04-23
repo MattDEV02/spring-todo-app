@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import DynamicChart from './components/dynamicChart';
 import Loading from '../../loading';
-import { calculations } from '../../../js';
+import { selectCalculations, setCalculations } from '../../../redux/calculations';
+import { GETcalculations } from '../../../js';
 
 
 const TodosChart = () => {
-   const [data, setData] = useState(null);
+   const dispatch = useDispatch();
+   const calculations = useSelector(selectCalculations);
    const [err, setErr] = useState(false);
    useEffect(() => {
       (async () => {
-         const res = await calculations();
+         const res = await GETcalculations();
          res ?
-            setData(res.data)
+            dispatch(setCalculations(res.data))
             :
             setErr(true);
       })();
@@ -21,9 +24,9 @@ const TodosChart = () => {
          <div className='row justify-content-center mt-4'>
             <div className='col-12' id='chart-container'>
                {
-                  data ?
+                  calculations ?
                      <DynamicChart
-                        data={data}
+                        calculations={calculations}
                      />
                      :
                      <Loading

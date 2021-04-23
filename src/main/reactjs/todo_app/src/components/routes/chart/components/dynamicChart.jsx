@@ -11,9 +11,9 @@ import config, {
 import '../css/index.css';
 
 
-const DynamicChart = ({ data }) => {
+const DynamicChart = ({ calculations }) => {
    const [type, setType] = useState(initialState);
-   setConfig(data);
+   setConfig(calculations);
    return (
       <>
          <div>

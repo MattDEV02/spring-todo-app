@@ -62,7 +62,7 @@ const _delete = async (id) => {
       sendMail(id);
 };
 
-const calculations = async () => {
+const GETcalculations = async () => {
    const res = await axios
       .get(baseUrl + routes.calculations, httpOptions)
       .catch(e => handleError(e));
@@ -77,5 +77,5 @@ export {
    insert,
    update,
    _delete,
-   calculations
+   GETcalculations
 };
